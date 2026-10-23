@@ -1,0 +1,47 @@
+/* ColourRadio component styles */
+.colour-layout { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.orb {
+  width: min(320px, 72vw);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 10px 10px 0 var(--ink);
+  transition: background 0.35s ease;
+}
+.colour-panel { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 28px 26px 24px; }
+.legend { padding: 4px 18px; font-weight: 800; color: var(--paper); background: var(--ink); border-radius: 999px; }
+.radio-pill { position: relative; cursor: pointer; }
+.radio-pill input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 8px 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.radio-pill:hover .pill { transform: translate(-1px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+.radio-pill input:checked + .pill {
+  color: var(--paper);
+  background: var(--ink);
+  transform: translate(-1px, -3px);
+  box-shadow: 5px 6px 0 rgba(29, 26, 58, 0.45);
+}
+.radio-pill input:focus-visible + .pill { outline: 3px solid var(--blue); outline-offset: 3px; }
+.swatch { width: 30px; height: 30px; border: 3px solid var(--ink); border-radius: 50%; }
+.radio-pill input:checked + .pill .swatch { border-color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pill, .orb { transition: none; }
+}
